@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <div class="row mb-5">
+    <div class="col-12 bg-info">Column A</div>
+    <div
+      class="col-6 row-2-back"
+      (click)="clickColumnB()"
+      [ngClass]="{ 'col-12': isColBClicked }"
+    >
+      Column B ({{ isColBClicked ? 'clicked' : 'unclicked' }})
+    </div>
+    <div class="col-6 row-2-back">Column C</div>
+    <div
+      class="col-3 row-3-back"
+      (click)="clickColumnD()"
+      [ngClass]="{ 'col-6': isColDClicked }"
+    >
+      Column D ({{ isColDClicked ? 'clicked' : 'unclicked' }})
+    </div>
+    <div class="col-3 row-3-back">Column E</div>
+    <div class="col-3 row-3-back">Column F</div>
+    <div class="col-3 row-3-back">Column G</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h2>Users</h2>
+      <button class="btn btn-success mb-3" (click)="loadUsers()">
+        Load Users
+      </button>
+
+      <div *ngFor="let user of users">
+        <hr />
+        <h4>{{ user.first_name }} {{ user.last_name }}</h4>
+        <p>{{ user.email }}</p>
+        <img src="{{ user.avatar }}" />
+      </div>
+    </div>
+  </div>
+</div>
